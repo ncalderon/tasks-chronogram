@@ -8,6 +8,7 @@ import { ProgressStepsComponent } from './components/progress-steps/progress-ste
 import { TaskComponent } from './components/task/task.component';
 import { ProjectComponent } from './components/project/project.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProjectSearchComponent } from './components/project-search/project-search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ProgressStepsComponent,
     TaskComponent,
     ProjectComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProjectSearchComponent
   ],
   imports: [
     BrowserModule,

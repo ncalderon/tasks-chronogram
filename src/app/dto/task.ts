@@ -1,4 +1,4 @@
-import {TaskStatus} from "./task-status.enum";
+import {TaskStatus} from './task-status.enum';
 export class Task {
   id: number;
   projectId: number;
@@ -9,5 +9,5 @@ export class Task {
   modified: string;
   beginDate: string;
   dueDate: string;
-  //subtasks: Task[];
+  // subtasks: Task[];
 }

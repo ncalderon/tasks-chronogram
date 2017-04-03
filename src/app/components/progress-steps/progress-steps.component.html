@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row bs-wizard" style="border-bottom:0;">
-    <div ngFor="let task of tasks">
-      <div class="col-xs-3 bs-wizard-step complete"
-           ngClass="task.isOnState"
-      >
-        <div class="text-center bs-wizard-stepnum"></div>
-        <div class="progress"><div class="progress-bar"></div></div>
+      <div class="col-xs-3 bs-wizard-step" *ngFor="let task of tasks; let i = index" [ngClass]="getStatusCssClass(task)">
+        <div class="text-center bs-wizard-stepnum">Tarea {{i+1}}</div>
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
         <a href="#" class="bs-wizard-dot"></a>
-        <div class="bs-wizard-info text-center">task.description</div>
+        <div class="bs-wizard-info text-center">{{task.description}}</div>
       </div>
+      <!--<div class="col-xs-3 bs-wizard-step disabled">
+        <div class="text-center bs-wizard-stepnum">New</div>
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
+        <a href="#" class="bs-wizard-dot"></a>
+        <div class="bs-wizard-info text-center"></div>
+      </div>-->
     </div>
-  </div>
 </div>

@@ -67,6 +67,7 @@
     "quotemark": [
       true,
       "single"
+
     ],
     "radix": true,
     "semicolon": [

@@ -1,0 +1,27 @@
+<button (click)="goBack()">Back</button>
+<div >
+  <h2 *ngIf="project">{{project.description}}</h2>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-info" name="createTask" (click)="createNewTask()">Create a task</button>
+  </div>
+</div>
+<div class="row">
+  <app-progress-steps  *ngIf="tasks" [tasks]="tasks"
+                       (onSelectTask)="setEditState($event)"
+  ></app-progress-steps>
+</div>
+<div class="container-fluid">
+      <app-task-create *ngIf="viewState === createState && task" [task]="task" [tasks]="tasks"
+                (onSave)="save($event)"
+      ></app-task-create>
+
+      <app-task-edit *ngIf="viewState === editState && task" [task]="task" [tasks]="tasks"
+                       (onUpdate)="update($event)" (onDelete)="delete($event)"
+      ></app-task-edit>
+</div>
+
+
+
+

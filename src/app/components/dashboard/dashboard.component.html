@@ -1,4 +1,9 @@
 <h3>Projects</h3>
+<div class="row">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-info" name="createProject" (click)="createNewProject()">Create a Project</button>
+  </div>
+</div>
 <div class="grid grid-pad">
   <a *ngFor="let project of projects"  [routerLink]="['/projects', project.id]"  class="col-1-4">
     <div class="module project">
@@ -6,4 +11,9 @@
     </div>
   </a>
 </div>
-<!--<project-search></project-search>-->
+<div class="container-fluid">
+  <app-project-create *ngIf="viewState === createState && project" [project]="project"
+                   (onSave)="save($event)"
+  ></app-project-create>
+
+</div>

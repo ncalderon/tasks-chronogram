@@ -1,3 +1,3 @@
-export enum TaskStatus {
+export enum TaskStatusEnum {
   PENDING, IN_PROGRESS, COMPLETED
 }

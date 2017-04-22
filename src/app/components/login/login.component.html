@@ -1,0 +1,65 @@
+<!-- LOGIN FORM -->
+<div class="text-center" style="padding:50px 0">
+  <div class="logo">login</div>
+  <!-- Main Form -->
+  <div class="login-form-1" >
+    <form id="login-form" class="text-left"
+          *ngIf="user" #userForm="ngForm"  *ngIf="active" (ngSubmit)="onSubmit()">
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            <label for="lg_username" class="sr-only">Username</label>
+            <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username"
+                   required minlength="4" maxlength="25" #username="ngModel"
+            >
+            <div *ngIf="username.errors && (username.dirty || username.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!username.errors.required">
+                Username is required
+              </div>
+              <div [hidden]="!username.errors.minlength">
+                Username must be at least 4 characters long.
+              </div>
+              <div [hidden]="!username.errors.maxlength">
+                Username cannot be more than 20 characters long.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lg_password" class="sr-only">Password</label>
+            <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"
+                   required minlength="4" maxlength="25" #password="ngModel"
+            >
+            <div *ngIf="password.errors && (password.dirty || password.touched)"
+                 class="alert alert-danger">
+              <div [hidden]="!password.errors.required">
+                Password is required
+              </div>
+              <div [hidden]="!password.errors.minlength">
+                Password must be at least 4 characters long.
+              </div>
+              <div [hidden]="!password.errors.maxlength">
+                Password cannot be more than 20 characters long.
+              </div>
+            </div>
+          </div>
+          <div class="form-group login-group-checkbox">
+            <input type="checkbox" id="lg_remember" name="lg_remember">
+            <label for="lg_remember">remember</label>
+          </div>
+        </div>
+        <button type="submit" class="login-button"
+                [disabled]="!userForm.form.valid"
+        >
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="etc-login-form">
+        <p>forgot your password? <a href="#">click here</a></p>
+        <p>new user? <a href="#">create new account</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>

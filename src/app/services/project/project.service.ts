@@ -36,9 +36,9 @@ export class ProjectService {
       .catch(this.handleError);
   }
 
-  create(name: string): Promise<Project> {
+  create(project: Project): Promise<Project> {
     return this.http
-      .post(this.projectsUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.projectsUrl, JSON.stringify(project), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Project)
       .catch(this.handleError);

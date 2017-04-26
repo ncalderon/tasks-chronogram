@@ -31,7 +31,7 @@
           <div class="form-group">
             <label for="lg_password" class="sr-only">Password</label>
             <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"
-                   [(ngModel) ]="userLogin.password"
+                   [(ngModel)]="userLogin.password"
                    required minlength="4" maxlength="25" #password="ngModel"
             >
             <div *ngIf="password.errors && (password.dirty || password.touched)"

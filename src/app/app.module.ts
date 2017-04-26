@@ -20,6 +20,8 @@ import { ProjectSearchComponent } from './components/project-search/project-sear
 import {ProjectService} from './services/project/project.service';
 import {TaskService} from './services/task/task.service';
 import { LoginComponent } from './components/login/login.component';
+import {AuthGuard} from "./components/login/guard/auth-guard";
+import {UserService} from "./services/user/user.service";
 
 
 
@@ -41,7 +43,7 @@ import { LoginComponent } from './components/login/login.component';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
-  providers: [ProjectService, TaskService],
+  providers: [AuthGuard, UserService, ProjectService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

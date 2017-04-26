@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   onSubmitted(): void {
     this.submitted = true;
-    this.userService.login(this.userLogin);
+    this.userService.login(this.userLogin).then( user => localStorage.setItem('currentUser', JSON.stringify(user)));
   }
 
   onLogin(): void {

@@ -3,14 +3,16 @@
   <div class="logo">login</div>
   <!-- Main Form -->
   <div class="login-form-1" >
+
     <form id="login-form" class="text-left"
-          *ngIf="user" #userForm="ngForm"  *ngIf="active" (ngSubmit)="onSubmit()">
+          *ngIf="userLogin" #userLoginForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="login-form-main-message"></div>
       <div class="main-login-form">
         <div class="login-group">
           <div class="form-group">
             <label for="lg_username" class="sr-only">Username</label>
             <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username"
+                   [(ngModel)]="userLogin.username"
                    required minlength="4" maxlength="25" #username="ngModel"
             >
             <div *ngIf="username.errors && (username.dirty || username.touched)"
@@ -29,6 +31,7 @@
           <div class="form-group">
             <label for="lg_password" class="sr-only">Password</label>
             <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"
+                   [(ngModel) ]="userLogin.password"
                    required minlength="4" maxlength="25" #password="ngModel"
             >
             <div *ngIf="password.errors && (password.dirty || password.touched)"
@@ -50,15 +53,17 @@
           </div>
         </div>
         <button type="submit" class="login-button"
-                [disabled]="!userForm.form.valid"
+                [disabled]="!userLoginForm.form.valid"
         >
           <i class="fa fa-chevron-right"></i>
         </button>
       </div>
+
       <div class="etc-login-form">
         <p>forgot your password? <a href="#">click here</a></p>
-        <p>new user? <a href="#">create new account</a></p>
+        <p>new user? <a href="#">Create new account</a></p>
       </div>
+
     </form>
   </div>
   <!-- end:Main Form -->

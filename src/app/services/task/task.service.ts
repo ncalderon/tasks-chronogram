@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http} from '@angular/http';
 import {Task} from '../../dto/task';
+import {system} from '../../shared/system';
 
 @Injectable()
 export class TaskService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private tasksUrl = 'api/tasks';  // URL to web api
+  private tasksUrl = system.getBaseApiURL() + '/tasks';  // URL to web api
   constructor(private http: Http) { }
 
   getTasks(): Promise<Task[]> {

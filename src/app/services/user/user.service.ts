@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from '../../dto/user';
 import {Headers, Http} from '@angular/http';
+import {UserLogin} from '../../dto/user-login';
 
 @Injectable()
 export class UserService {
@@ -9,7 +10,7 @@ export class UserService {
   private usersUrl = 'api/users';  // URL to web api
   constructor(private http: Http) { }
 
-  login(user: User): Promise<User> {
+  login(user: UserLogin): Promise<User> {
     const url = `${this.usersUrl}/login`;
     return this.http
       .post(this.usersUrl, JSON.stringify(user), {headers: this.headers})

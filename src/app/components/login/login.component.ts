@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../services/user/user.service";
-import {User} from "../../dto/user";
+import {UserService} from '../../services/user/user.service';
+import {UserLogin} from "../../dto/user-login";
+
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,25 @@ import {User} from "../../dto/user";
 })
 export class LoginComponent implements OnInit {
 
-  user: User;
+  userLogin: UserLogin;
   active: boolean;
   submitted = false;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.user = new User();
+    this.userLogin = new UserLogin();
   }
 
   onSubmitted(): void {
     this.submitted = true;
-    this.userService.login(user);
+    this.userService.login(this.userLogin);
   }
 
+  onLogin(): void {
+
+  }
+
+  onNewUser(): void {
+
+  }
 }

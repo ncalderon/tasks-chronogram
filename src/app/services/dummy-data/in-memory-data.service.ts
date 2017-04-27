@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import {ProjectStatusEnum} from '../../dto/project-status.enum';
 import {TaskStatusEnum} from '../../dto/task-status.enum';
+import {UserStatusEnum} from "../../dto/user-status.enum";
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const projects = [
@@ -84,6 +85,33 @@ export class InMemoryDataService implements InMemoryDbService {
         , dueDate: '2017-04-14'
       }
     ];
-    return {projects, tasks};
+    const users = [
+      {
+        id: 1
+        ,username: 'nathanielc_g'
+        ,password: 'nathanielc_g'
+        ,status: UserStatusEnum.ACTIVE
+        ,name: "Nathaniel Calderon"
+        ,email: "nathaniel.calderon@gmail.comn"
+      },
+      {
+        id: 2
+        ,username: 'jansel'
+        ,password: 'jansel'
+        ,status: UserStatusEnum.INACTIVE
+        ,name: "Jansel"
+        ,email: "jansel@gmail.comn"
+      },
+      {
+        id: 3
+        ,username: 'test'
+        ,password: 'test'
+        ,status: UserStatusEnum.ACTIVE
+        ,name: "test"
+        ,email: "test@gmail.comn"
+      }
+
+    ];
+    return {projects, tasks, users};
   }
 }

@@ -13,8 +13,9 @@ export class ProjectService {
   private projectsUrl = 'api/projects';  // URL to web api
   constructor(private http: Http) { }
 
-  getProjects(): Promise<Project[]> {
-    return this.http.get(this.projectsUrl)
+  getProjects(userId: number): Promise<Project[]> {
+    const url = `${this.projectsUrl}/?userId=${userId}`;
+    return this.http.get(url)
       .toPromise()
       .then(response => response.json().data as Project[])
       .catch(this.handleError);

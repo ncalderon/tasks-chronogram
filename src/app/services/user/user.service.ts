@@ -10,12 +10,18 @@ export class UserService {
   private usersUrl = 'api/users';  // URL to web api
   constructor(private http: Http) { }
 
-  login(user: UserLogin): Promise<User> {
-    const url = `${this.usersUrl}/login`;
-    return this.http
-      .post(this.usersUrl, JSON.stringify(user), {headers: this.headers})
+  // TODO: Implement real method
+  login(userLogin: UserLogin): Promise<User> {
+    const url = `${this.usersUrl}/?username=${userLogin.username}&password=${userLogin.password}`;
+    return this.http.get(url)
       .toPromise()
-      .then(res => res.json().data as User)
+      .then(response => {
+        let users = response.json().data as User[];
+        if (users.length > 0)
+          return users[0];
+        else
+          return null;
+      })
       .catch(this.handleError);
   }
 

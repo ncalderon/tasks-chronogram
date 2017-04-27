@@ -3,6 +3,8 @@ import {Project} from '../../dto/project';
 import {ProjectService} from '../../services/project/project.service';
 import {ProjectStatusEnum} from '../../dto/project-status.enum';
 import {ViewState} from '../../dto/view-state.enum';
+import {User} from "../../dto/user";
+import {session} from "../../shared/session";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +13,7 @@ import {ViewState} from '../../dto/view-state.enum';
 })
 export class DashboardComponent implements OnInit {
 
+  userLogged: User;
   project: Project;
   projects: Project[];
   viewState: ViewState;
@@ -19,11 +22,13 @@ export class DashboardComponent implements OnInit {
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    this.userLogged = session.getUserLogged();
     this.getProjects();
+
   }
 
   getProjects(): void {
-    this.projectService.getProjects().then( projects => this.projects = projects);
+    this.projectService.getProjects(this.userLogged.id).then( projects => this.projects = projects);
   }
 
   createNewProject(): void {

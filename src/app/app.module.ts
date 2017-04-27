@@ -22,6 +22,7 @@ import {TaskService} from './services/task/task.service';
 import { LoginComponent } from './components/login/login.component';
 import {AuthGuard} from "./components/login/guard/auth-guard";
 import {UserService} from "./services/user/user.service";
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -34,7 +35,8 @@ import {UserService} from "./services/user/user.service";
     ProjectComponent,
     ProjectEditComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

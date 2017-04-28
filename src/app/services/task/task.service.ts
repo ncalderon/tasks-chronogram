@@ -7,7 +7,7 @@ import {system} from '../../shared/system';
 export class TaskService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private tasksUrl = system.getBaseApiURL() + '/tasks';  // URL to web api
+  private tasksUrl = `${system.getBaseApiURL()}/tasks`;  // URL to web api
   constructor(private http: Http) { }
 
   getTasks(): Promise<Task[]> {

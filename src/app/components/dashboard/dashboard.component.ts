@@ -36,6 +36,14 @@ export class DashboardComponent implements OnInit {
     this.project = new Project();
     this.project.status = ProjectStatusEnum.PENDING;
     this.project.description = '';
+    this.project.userId = this.userLogged.id;
+    this.project.beginDate = new Date().toDateString();
+    this.project.dueDate= new Date().toDateString();
+
+    this.project.created = new Date().toDateString();
+    this.project.modified = new Date().toDateString();
+
+
   }
 
   refreshModel(): void {

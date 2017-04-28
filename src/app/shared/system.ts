@@ -5,7 +5,7 @@ export interface System {
 }
 
 export const system: System = {
-  baseApiURL: '',
+  baseApiURL: 'api',
   appTitle: '',
   getBaseApiURL(): string {
     return this.baseApiURL;

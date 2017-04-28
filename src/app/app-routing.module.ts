@@ -5,13 +5,16 @@ import {ProjectComponent} from './components/project/edit/project.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from "./components/login/guard/auth-guard";
 import {LoginComponent} from "./components/login/login.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
   /*{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },*/
   { path: 'login', component: LoginComponent },
-  { path: '', canActivate: [AuthGuard], component: DashboardComponent },
+  { path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent },
+  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'projects/:id', canActivate: [AuthGuard], component: ProjectComponent },
+  { path: '**', component: PageNotFoundComponent }
   /*{ path: 'project',     component: ProjectComponent }*/
   // otherwise redirect to home
   /*{ path: '**', redirectTo: '' }*/

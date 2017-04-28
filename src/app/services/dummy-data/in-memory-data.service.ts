@@ -12,6 +12,7 @@ export class InMemoryDataService implements InMemoryDbService {
         , modified: '2017-04-01T10:45:54Z'
         , beginDate: '2017-04-07'
         , dueDate: '2017-04-25'
+        , userId: 1
       }
       ,{  id: 2
         , description: 'Project 2'
@@ -20,6 +21,7 @@ export class InMemoryDataService implements InMemoryDbService {
         , modified: '2017-04-05T10:45:54Z'
         , beginDate: '2017-03-15'
         , dueDate: '2017-04-15'
+        , userId: 2
       }
     ];
 

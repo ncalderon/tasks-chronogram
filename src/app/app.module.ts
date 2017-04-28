@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import {AuthGuard} from "./components/login/guard/auth-guard";
 import {UserService} from "./services/user/user.service";
 import { AlertComponent } from './components/alert/alert.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -36,7 +37,8 @@ import { AlertComponent } from './components/alert/alert.component';
     ProjectEditComponent,
     DashboardComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

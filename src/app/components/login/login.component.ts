@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.userLogin).then( user => {
       if (null != user && user.status === UserStatusEnum.ACTIVE){
         console.log("User logged: ", user);
-        localStorage.setItem('UserLogged', JSON.stringify(user));
+        localStorage.setItem('userLogged', JSON.stringify(user));
         this.router.navigate([""]);
       } else {
         this.message = new Message();

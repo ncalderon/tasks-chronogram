@@ -9,6 +9,8 @@ import {ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import {TaskStatusEnum} from '../../../dto/task-status.enum';
 import {ViewState} from '../../../dto/view-state.enum';
+import {User} from "../../../dto/user";
+import {session} from "../../../shared/session";
 
 
 @Component({
@@ -18,12 +20,14 @@ import {ViewState} from '../../../dto/view-state.enum';
 })
 export class ProjectComponent implements OnInit {
 
+  userLogged: User;
   project: Project;
   tasks: Task[];
   task: Task;
   viewState: ViewState;
   createState: ViewState = ViewState.CREATE;
-  editState: ViewState = ViewState.EDIT                                     ;
+  editState: ViewState = ViewState.EDIT;
+
   constructor(
               private projectService: ProjectService
               , private taskService: TaskService
@@ -31,6 +35,7 @@ export class ProjectComponent implements OnInit {
               , private location: Location) { }
 
   ngOnInit() {
+    this.userLogged = session.getUserLogged();
     this.route.params
       .switchMap((params: Params) => this.projectService.getProject(+params['id']))
       .subscribe(project => { this.project = project; this.getTasksByProjectId(this.project.id); });

@@ -5,12 +5,13 @@ import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Project} from '../../dto/project';
+import {system} from "../../shared/system";
 
 @Injectable()
 export class ProjectService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private projectsUrl = 'api/projects';  // URL to web api
+  private projectsUrl = `${system.getBaseApiURL()}/projects`;  // URL to web api
   constructor(private http: Http) { }
 
   getProjects(userId: number): Promise<Project[]> {
